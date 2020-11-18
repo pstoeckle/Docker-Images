@@ -20,4 +20,4 @@ deploy:
   - if: '$CI_COMMIT_BRANCH == "development"'
     changes:
     - Dockerfile
-    - .lrz.gitlab-ci.yml
+    - .gitlab-ci.yml
