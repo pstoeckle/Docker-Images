@@ -1,5 +1,5 @@
 stages:
-- post-analysis
+- deploy
 
 deploy:
   image: docker:18
