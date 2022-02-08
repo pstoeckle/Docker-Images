@@ -3,6 +3,11 @@ stages:
 
 deploy:
   image: docker:18
+  needs: []
+  rules:
+  -   if: '$CI_COMMIT_BRANCH == "main"'
+  -   if: '$CI_COMMIT_BRANCH == "development"'
+  -   if: '$CI_COMMIT_TAG'
   services:
   - docker:18-dind
   stage: deploy
@@ -20,9 +25,8 @@ deploy:
       --tag $IMAGE_NAME:$CI_COMMIT_REF_NAME 
       .
   - docker push $IMAGE_NAME
+  tags:
+    - docker
+    - privileged
   variables:
     IMAGE_NAME: $CI_REGISTRY_IMAGE/python3.9-poetry
-  rules:
-  -   if: '$CI_COMMIT_BRANCH == "main"'
-  -   if: '$CI_COMMIT_BRANCH == "development"'
-  -   if: '$CI_COMMIT_TAG'
