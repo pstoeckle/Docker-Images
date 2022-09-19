@@ -16,6 +16,9 @@ ENV COMMIT_SHORT=${COMMIT_SHORT}
 ENV BRANCH=${BRANCH}
 ENV TAG=${TAG}
 
+ENV HOME=/home/poetry_user
+ENV PATH="${PATH}:${HOME}/.poetry/bin:/home/poetry_user/.local/bin"
+
 RUN apt-get update -qq \
     && apt-get autoremove -y -qq \
     && apt-get clean \
@@ -24,14 +27,10 @@ RUN apt-get update -qq \
     && useradd --create-home --shell /bin/bash poetry_user
 
 WORKDIR /home/poetry_user
-ENV HOME=/home/poetry_user
 USER poetry_user
 
 COPY rsc/get-poetry.py get-poetry.py
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-RUN python get-poetry.py && rm get-poetry.py
-
-ENV PATH="${HOME}/.poetry/bin:$PATH"
-RUN poetry config virtualenvs.in-project true
+RUN python get-poetry.py --version 1.2.1 && rm get-poetry.py && poetry config virtualenvs.in-project true
