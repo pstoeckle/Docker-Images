@@ -1,4 +1,4 @@
-IMAGE_NAME=tumi4/python-3.9-bullseye-poetry
+IMAGE_NAME=tumi4/python-3.9-bullseye-poetry-1.2.1
 
 CI_COMMIT_SHA=$(git rev-parse HEAD)
 CI_COMMIT_BRANCH=$(git symbolic-ref --short HEAD)
