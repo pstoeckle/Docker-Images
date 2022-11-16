@@ -6,7 +6,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: python3.9-poetry1.2.1
+  IMAGE_NAME: ${{ github.repository }}/python3.9-poetry1.2.1
 
 jobs:
   deploy:
