@@ -1,20 +1,6 @@
 FROM python:3.9-bullseye
 
-ARG COMMIT=""
-ARG COMMIT_SHORT=""
-ARG BRANCH=""
-ARG TAG=""
-
-LABEL author="Patrick Stöckle <patrick.stoeckle@tum.de>"
-LABEL edu.tum.i4.docker-images.commit=${COMMIT}
-LABEL edu.tum.i4.docker-images.commit-short=${COMMIT_SHORT}
-LABEL edu.tum.i4.docker-images.branch=${BRANCH}
-LABEL edu.tum.i4.docker-images.tag=${TAG}
-
-ENV COMMIT=${COMMIT}
-ENV COMMIT_SHORT=${COMMIT_SHORT}
-ENV BRANCH=${BRANCH}
-ENV TAG=${TAG}
+LABEL author="Patrick Stöckle <patrick.stoeckle@posteo.de>"
 
 ENV HOME=/home/poetry_user
 ENV PATH="${PATH}:${HOME}/.poetry/bin:/home/poetry_user/.local/bin"
@@ -23,14 +9,16 @@ RUN apt-get update -qq \
     && apt-get autoremove -y -qq \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
-    && pip install --no-cache-dir --upgrade pip==21.3.1 \
+    && pip install --no-cache-dir --upgrade pip==22.3.1 \
     && useradd --create-home --shell /bin/bash poetry_user
 
 WORKDIR /home/poetry_user
 USER poetry_user
 
-COPY rsc/get-poetry.py get-poetry.py
+COPY install.py install.py
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-RUN python get-poetry.py --version 1.2.1 && rm get-poetry.py && poetry config virtualenvs.in-project true
+RUN python install.py --version 1.2.1 \
+    && rm install.py \
+    && poetry config virtualenvs.in-project true
