@@ -1,4 +1,4 @@
-name: "Build and Docker container."
+name: "Build and deploy the Poetry Docker container."
 
 on:
   release:
