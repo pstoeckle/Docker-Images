@@ -1,9 +1,6 @@
 name: "Build and deploy the node + ruby images."
 
 on:
-  push:
-    branches:
-      - "main"
   release:
     types: [published]
 
