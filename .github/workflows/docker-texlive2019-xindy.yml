@@ -3,6 +3,10 @@ name: "Build and deploy the Texlive + xindy image."
 on:
   release:
     types: [published]
+  push:
+    paths:
+      - ".github/workflows/docker-texlive2019-xindy.yml"
+      - "docker-texlive2019-xindy/Dockerfile"
 
 env:
   REGISTRY: ghcr.io

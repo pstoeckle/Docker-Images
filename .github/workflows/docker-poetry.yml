@@ -3,6 +3,11 @@ name: "Build and deploy the Poetry Docker container."
 on:
   release:
     types: [published]
+  push:
+    paths:
+      - ".github/workflows/docker-poetry.yml"
+      - "Dockerfile"
+      - "install.py"
 
 env:
   REGISTRY: ghcr.io
