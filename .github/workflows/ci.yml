@@ -1,4 +1,4 @@
-name: "Build and deploy the node + ruby images."
+name: "Build and deploy container images"
 
 on:
   release:
@@ -8,8 +8,8 @@ jobs:
   docker:
     uses: ./.github/workflows/docker.yml
     with:
-      context: docker-ruby/
-      dockerfile: docker-ruby/Dockerfile
+      context: node-ruby/
+      dockerfile: node-ruby/Dockerfile
       image-authors: "Patrick Stoeckle"
       image-description: "Node+Ruby"
       image-registry: ghcr.io
