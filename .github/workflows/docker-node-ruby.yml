@@ -14,7 +14,7 @@ jobs:
       image-authors: "Patrick Stoeckle"
       image-description: "Node+Ruby"
       image-registry: ghcr.io
-      image-name: ${{ github.repository }}/node-ruby
+      image-name: pstoeckle/docker-images/node-ruby
       image-tag: 24.8.0--3.3
       image-title: "Node+Ruby"
     permissions:
