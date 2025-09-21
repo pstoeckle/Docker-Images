@@ -1,16 +1,41 @@
 FROM node:24.8.0-trixie@sha256:f5162797de1d39d296791046ee253dc9c2f20c000f312aeb289c5e699f56c229
 
+# renovate: datasource=ruby-version
+ENV RUBY_VERSION=3.4.6
+
+# renovate: datasource=github-releases packageName=rbenv/ruby-build
+ENV RUBY_BUILD_VERSION=v20250916.1
+
+# renovate: datasource=deb depName=git-lfs
+ENV GIT_LFS_VERSION=3.6.1-1+b5
+
+# renovate: datasource=deb depName=rbenv
+ENV RBENV_VERSION=1.1.2-2
+
+# renovate: datasource=npm depName=npm
+ENV NPM_VERSION=11.6.0
+
 RUN set -eux ; \
     apt-get update -qq ; \
-    apt-get install -qq --no-install-recommends -y \
-    git-lfs=3.6.1-1+b5 \
-    ruby-bundler=2.6.7-2 \
-    ruby-dev=1:3.3+b1 \
-    ruby=1:3.3+b1 \
+    apt-get install -qqy --no-install-recommends \
+    "git-lfs=${GIT_LFS_VERSION}" \
+    "rbenv=${RBENV_VERSION}" \
     ; \
-    apt-get autoremove -y -qq ; \
+    apt-get autoremove -qqy ; \
     apt-get clean ; \
     rm -rf /var/lib/apt/lists/* ; \
+    # Install NPM
     npm install -g \
-    npm@11.6.0 \
-    ;
+    "npm@${NPM_VERSION}" \
+    ; \
+    # Install ruby-build with rbenv install
+    git clone \
+    --branch "${RUBY_BUILD_VERSION}" \
+    --depth 1 \
+    --quiet \
+    https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build ; \
+    # install newest ruby
+    rbenv install "${RUBY_VERSION}" ; \
+    rbenv global "${RUBY_VERSION}" ; \
+    # Install bundler
+    gem install bundler
