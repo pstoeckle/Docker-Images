@@ -15,6 +15,8 @@ ENV RBENV_VERSION=1.1.2-2
 # renovate: datasource=npm depName=npm
 ENV NPM_VERSION=11.6.0
 
+ENV PATH="/root/.rbenv/versions/${RUBY_VERSION}/bin/:${PATH}"
+
 RUN set -eux ; \
     apt-get update -qq ; \
     apt-get install -qqy --no-install-recommends \
