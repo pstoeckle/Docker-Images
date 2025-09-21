@@ -17,6 +17,7 @@ readonly COMBINED_IN_CI
 if [ "$COMBINED_IN_CI" = "$COMBINED" ]; then
     echo "Everything in sync"
 else
+    echo "The versions are **NOT** in sync!"
     echo "$COMBINED_IN_CI != $COMBINED"
     exit 1
 fi
