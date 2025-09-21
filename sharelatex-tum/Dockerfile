@@ -1,4 +1,4 @@
-FROM ubuntu:23.04
+FROM ubuntu:lunar-20231128
 
 ENV PATH="/home/python-sharelatex-user/.venv/bin/:${PATH}"
 
