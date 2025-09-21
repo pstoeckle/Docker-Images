@@ -1,5 +1,5 @@
 ARG BASE_IMAGE=python
-ARG BASE_IMAGE_VERSION=3.9
+ARG BASE_IMAGE_VERSION=3.13
 FROM ${BASE_IMAGE}:${BASE_IMAGE_VERSION}
 RUN apt-get update -qq\
     && apt-get install -qqy apt-transport-https ca-certificates curl gnupg2 software-properties-common \

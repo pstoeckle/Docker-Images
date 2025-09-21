@@ -1,4 +1,4 @@
-FROM python:3.9-bullseye
+FROM python:3.13-bullseye
 
 LABEL author="Patrick Stöckle <patrick.stoeckle@posteo.de>"
 
