@@ -2,14 +2,14 @@ stages:
 - deploy
 
 deploy:
-  image: docker:18
+  image: docker:28
   needs: []
   rules:
   -   if: '$CI_COMMIT_BRANCH == "main"'
   -   if: '$CI_COMMIT_BRANCH == "development"'
   -   if: '$CI_COMMIT_TAG'
   services:
-  - docker:18-dind
+  - docker:28-dind
   stage: deploy
   script:
   - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
