@@ -1,4 +1,4 @@
-FROM alpine:3.16.2
+FROM alpine:3.22.1
 
 LABEL org.opencontainers.image.author="Patrick Stöckle <patrick.stoeckle@posteo.de>"
 
