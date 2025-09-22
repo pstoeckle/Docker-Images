@@ -8,7 +8,7 @@ jobs:
     permissions: {contents: read }
     steps:
       - name: Checkout repository
-        uses: actions/checkout@ff7abcd0c3c05ccf6adc123a8cd1fd4fb30fb493
+        uses: actions/checkout@v5.0.0
       - name: Check consistency
         run: |
           bash utils/check_if_versions_are_aligned.sh
