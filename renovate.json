@@ -7,7 +7,19 @@
     ":semanticCommits",
     "config:recommended",
     "customManagers:dockerfileVersions",
+    "customManagers:githubActionsVersions",
     "docker:pinDigests",
-    "group:allNonMajor"
+    "group:allNonMajor",
+    "helpers:pinGitHubActionDigests"
+  ],
+  "packageRules": [
+    {
+      "groupName": "GitHub Actions dependencies",
+      "description": "Group GitHub Actions updates",
+      "matchFileNames": [
+        ".github/**/*.yaml",
+        ".github/**/*.yml"
+      ]
+    }
   ]
 }
