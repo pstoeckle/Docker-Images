@@ -3,7 +3,6 @@ on:
   push:
     tags:
       - 'v*'
-
 jobs:
   docker:
     uses: ./.github/workflows/docker.yml
@@ -14,7 +13,7 @@ jobs:
       image-description: "Node+Ruby"
       image-registry: ghcr.io
       image-name: pstoeckle/docker-images/node-ruby
-      image-tag: 24.8.0--3.4.6
+      image-tag: ""
       image-title: "Node+Ruby"
     permissions:
       contents: read
