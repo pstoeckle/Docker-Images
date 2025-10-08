@@ -16,8 +16,11 @@ readonly COMBINED_IN_CI
 
 if [ "$COMBINED_IN_CI" = "$COMBINED" ]; then
     echo "Everything in sync"
+    exit 0
 else
     echo "The versions are **NOT** in sync!"
     echo "$COMBINED_IN_CI != $COMBINED"
-    exit 1
+    # use yq to set jobs.docker.with.image-tag to $COMBINED
+    yq eval -i '.jobs.docker.with."image-tag" = strenv(COMBINED)' .github/workflows/ci.yml
+    echo "TAG_VERSION=v$COMBINED" >> "$GITHUB_OUTPUT"
 fi

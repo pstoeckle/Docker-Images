@@ -1,8 +1,8 @@
 name: "Build and deploy container images"
-
 on:
-  release:
-    types: [published]
+  push:
+    tags:
+      - 'v*'
 
 jobs:
   docker:
@@ -14,7 +14,7 @@ jobs:
       image-description: "Node+Ruby"
       image-registry: ghcr.io
       image-name: pstoeckle/docker-images/node-ruby
-      image-tag: 24.9.0--3.4.7
+      image-tag: 24.8.0--3.4.6
       image-title: "Node+Ruby"
     permissions:
       contents: read

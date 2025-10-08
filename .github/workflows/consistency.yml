@@ -5,10 +5,19 @@ on: {push: {branches: [main]}}
 jobs:
   docker-and-github-action-in-sync:
     runs-on: ubuntu-latest
-    permissions: {contents: read }
+    permissions:
+      contents: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5.0.0
-      - name: Check consistency
+      - name: Check consistency/update ci.yml
+        id: check
         run: |
           bash utils/check_if_versions_are_aligned.sh
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v6.0.1
+        with:
+          commit_message: ":arrow_up: chore(deps): align versions"
+          branch: main
+          file_pattern: .github/workflows/ci.yml
+          tagging_message: ${{ steps.check.outputs.TAG_VERSION }}
