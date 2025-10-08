@@ -15,10 +15,14 @@ jobs:
         id: check
         run: |
           bash utils/check_if_versions_are_aligned.sh
+      - name: Update ci.yml if needed
+        uses: mikefarah/yq@v4.47.2
+        with:
+          cmd: yq eval -i '.jobs.docker.with."image-tag" = ${{ steps.check.outputs.TAG_VERSION }}' .github/workflows/ci.yml
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v6.0.1
         with:
           commit_message: ":arrow_up: chore(deps): align versions"
           branch: main
           file_pattern: .github/workflows/ci.yml
-          tagging_message: ${{ steps.check.outputs.TAG_VERSION }}
+          tagging_message: v${{ steps.check.outputs.TAG_VERSION }}
