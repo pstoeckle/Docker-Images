@@ -8,7 +8,7 @@ jobs:
     permissions: {}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5.0.0
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
           token: ${{ secrets.PAT }}
       - name: Check consistency/update ci.yml
@@ -16,11 +16,11 @@ jobs:
         run: |
           bash utils/check_if_versions_are_aligned.sh
       - name: Update ci.yml if needed
-        uses: mikefarah/yq@v4.47.2
+        uses: mikefarah/yq@6251e95af8df3505def48c71f3119836701495d6 # v4.47.2
         with:
           cmd: yq eval -i '.jobs.docker.with."image-tag"="${{ steps.check.outputs.TAG_VERSION }}"' .github/workflows/ci.yml
       - name: Commit changes
-        uses: stefanzweifel/git-auto-commit-action@v6.0.1
+        uses: stefanzweifel/git-auto-commit-action@778341af668090896ca464160c2def5d1d1a3eb0 # v6.0.1
         with:
           commit_message: ":arrow_up: chore(deps): align versions"
           branch: main
