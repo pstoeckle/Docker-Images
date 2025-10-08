@@ -1,7 +1,7 @@
 FROM node:24.9.0-trixie@sha256:3111b5084cc01e081e7ed571cfe7beddd13522b0c19c9dfff635cf2d85e4e3b3
 
 # renovate: datasource=ruby-version depName=ruby
-ENV RUBY_VERSION=3.4.6
+ENV RUBY_VERSION=3.4.7
 
 # renovate: datasource=github-releases depName=rbenv/ruby-build packageName=rbenv/ruby-build
 ENV RUBY_BUILD_VERSION=20251008
