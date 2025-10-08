@@ -18,7 +18,7 @@ jobs:
       - name: Update ci.yml if needed
         uses: mikefarah/yq@v4.47.2
         with:
-          cmd: yq eval -i '.jobs.docker.with."image-tag" = ${{ steps.check.outputs.TAG_VERSION }}' .github/workflows/ci.yml
+          cmd: yq eval -i '.jobs.docker.with."image-tag"="${{ steps.check.outputs.TAG_VERSION }}"' .github/workflows/ci.yml
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v6.0.1
         with:
