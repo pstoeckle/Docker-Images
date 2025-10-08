@@ -5,13 +5,12 @@ on: {push: {branches: [main]}}
 jobs:
   docker-and-github-action-in-sync:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      actions: write
-      checks: write
+    permissions: {}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5.0.0
+        with:
+          token: ${{ secrets.PAT }}
       - name: Check consistency/update ci.yml
         id: check
         run: |
