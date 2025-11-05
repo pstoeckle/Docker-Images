@@ -1,4 +1,4 @@
-FROM node:24.11.0-trixie@sha256:16dd4db5b2fddab4890603dc327984dc46860c3f754bcff9aa55ed2a552d04c9
+FROM node:24.11.0-trixie@sha256:52362d0f0728dcd6b2b25742383ba2c5399df20629de180b20419701e95a7f45
 
 # renovate: datasource=ruby-version depName=ruby
 ENV RUBY_VERSION=3.4.7
