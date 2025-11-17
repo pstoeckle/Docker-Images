@@ -4,7 +4,7 @@ FROM node:24.11.1-trixie@sha256:bb389a01aae43707c0d797768e0bdc2d6f537ef792b70562
 ENV RUBY_VERSION=3.4.7
 
 # renovate: datasource=github-releases depName=rbenv/ruby-build packageName=rbenv/ruby-build
-ENV RUBY_BUILD_VERSION=20251023
+ENV RUBY_BUILD_VERSION=20251117
 
 # renovate: datasource=deb depName=git-lfs
 ENV GIT_LFS_VERSION=3.6.1-1+b5
