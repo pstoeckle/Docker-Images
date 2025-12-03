@@ -77,7 +77,7 @@ jobs:
       - name: Set up QEMU
         uses: docker/setup-qemu-action@c7c53464625b32c7a7e944ae62b3e17d2b600130 # v3.7.0
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@1583c0f09d26c58c59d25b0eef29792b7ce99d9a
+        uses: docker/setup-buildx-action@65d18f8f8a05aab1b2d761032bec9cd5578caadb
       - name: Extract metadata
         uses: docker/metadata-action@c299e40c65443455700f0fdfc63efafe5b349051 # v5.10.0
         id: meta
