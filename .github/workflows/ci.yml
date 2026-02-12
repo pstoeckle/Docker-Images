@@ -13,7 +13,7 @@ jobs:
       image-description: "Node+Ruby"
       image-registry: ghcr.io
       image-name: pstoeckle/docker-images/node-ruby
-      image-tag: "24.13.0--4.0.1"
+      image-tag: "24.13.1--4.0.1"
       image-title: "Node+Ruby"
     permissions:
       contents: read
