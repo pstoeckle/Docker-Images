@@ -1,4 +1,4 @@
-FROM node:24.13.0-trixie@sha256:c5d7e2590675fc31c7d6709e052030f9be090bc8ddcded1b559c503c54cf5c2b
+FROM node:24.13.1-trixie@sha256:0c36fcf0bfd7d2c60bb4615dbac143bf9d8309c9bfb13c158095602b396a0f3a
 
 # renovate: datasource=ruby-version depName=ruby
 ENV RUBY_VERSION=4.0.1
@@ -13,7 +13,7 @@ ENV GIT_LFS_VERSION=3.6.1-1+b5
 ENV RBENV_VERSION=1.1.2-2
 
 # renovate: datasource=npm depName=npm
-ENV NPM_VERSION=11.9.0
+ENV NPM_VERSION=11.10.0
 
 ENV PATH="/root/.rbenv/versions/${RUBY_VERSION}/bin/:${PATH}"
 
