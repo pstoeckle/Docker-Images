@@ -16,7 +16,7 @@ jobs:
         run: |
           bash utils/check_if_versions_are_aligned.sh
       - name: Update ci.yml if needed
-        uses: mikefarah/yq@2be0094729a1006f61e8339ce9934bfb3cbb549f # v4.52.2
+        uses: mikefarah/yq@5a7e72a743649b1b3a47d1a1d8214f3453173c51 # v4.52.4
         with:
           cmd: yq eval -i '.jobs.docker.with."image-tag"="${{ steps.check.outputs.TAG_VERSION }}"' .github/workflows/ci.yml
       - name: Commit changes
