@@ -3,9 +3,6 @@ FROM node:24.13.1-trixie@sha256:0c36fcf0bfd7d2c60bb4615dbac143bf9d8309c9bfb13c15
 # renovate: datasource=ruby-version depName=ruby
 ENV RUBY_VERSION=4.0.1
 
-# renovate: datasource=github-releases depName=rbenv/ruby-build packageName=rbenv/ruby-build
-ENV RUBY_BUILD_VERSION=20260121
-
 # renovate: datasource=deb depName=git-lfs
 ENV GIT_LFS_VERSION=3.6.1-1+b5
 
@@ -32,7 +29,6 @@ RUN set -eux ; \
     ; \
     # Install ruby-build with rbenv install
     git clone \
-    --branch "v${RUBY_BUILD_VERSION}" \
     --depth 1 \
     --quiet \
     https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build ; \
