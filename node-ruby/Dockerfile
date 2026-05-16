@@ -4,7 +4,7 @@ FROM node:24.15.0-trixie@sha256:83bd9709839251476a4caa7b5a7139d5ca372affcd35ecca
 ENV RUBY_VERSION=4.0.4
 
 # renovate: datasource=deb depName=git-lfs
-ENV GIT_LFS_VERSION=3.6.1-1+b5
+ENV GIT_LFS_VERSION=3.6.1-1+deb13u1
 
 # renovate: datasource=deb depName=rbenv
 ENV RBENV_VERSION=1.1.2-2
