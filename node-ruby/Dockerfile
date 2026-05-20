@@ -1,7 +1,7 @@
 FROM node:24.15.0-trixie@sha256:83bd9709839251476a4caa7b5a7139d5ca372affcd35eccac688b04aa0e93667
 
 # renovate: datasource=ruby-version depName=ruby
-ENV RUBY_VERSION=4.0.4
+ENV RUBY_VERSION=4.0.5
 
 # renovate: datasource=deb depName=git-lfs
 ENV GIT_LFS_VERSION=3.6.1-1+deb13u1
