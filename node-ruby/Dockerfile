@@ -10,7 +10,7 @@ ENV GIT_LFS_VERSION=3.6.1-1+deb13u1
 ENV RBENV_VERSION=1.1.2-2
 
 # renovate: datasource=npm depName=npm
-ENV NPM_VERSION=11.14.1
+ENV NPM_VERSION=12.0.2
 
 ENV PATH="/root/.rbenv/versions/${RUBY_VERSION}/bin/:${PATH}"
 
